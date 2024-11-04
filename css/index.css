@@ -538,11 +538,12 @@ button.prev-btn {
 }
 
 .ohui-product-showcase h2{
-    font-size: 70px;
+    font-size: 4.375rem; /* 70px을 rem으로 변환 (1rem = 16px 기준) */
     padding-bottom: 2%;
     font-family: "Cormorant", serif;
     font-weight: 700;
     color: #333;
+    padding-left: 25px;
 }
 
 .ohui-slider-wrapper {
@@ -576,10 +577,12 @@ button.prev-btn {
     min-width: 100%;
     display: flex;
     gap: 0px;
+    flex-direction: column; /* 기본적으로 세로 방향으로 배치 */
 }
 
 .ohui-hero-image {
     flex: 1;
+    margin: 0 5%; /* 좌우 여백 추가 */
 }
 
 .ohui-hero-image img {
@@ -594,6 +597,8 @@ button.prev-btn {
     position: relative;
     flex: 1;
     padding: 20px;
+    margin: 0 5%; /* 좌우 여백 추가 */
+    text-align: center; /* 중앙 정렬 */
 }
 
 .ohui-nav-btn {
@@ -617,6 +622,7 @@ button.prev-btn {
 }
 
 .ohui-product-card {
+    width: 400px;
     position: relative;
     text-align: center;
 }
@@ -657,11 +663,7 @@ button.prev-btn {
     opacity: 1;
 }
 
-.ohui-product-card img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-}
+
 
 .ohui-product-card h3 {
     font-size: 18px;
@@ -691,14 +693,57 @@ button.prev-btn {
     margin-top: 0;
 }
 
+
+/* PC 버전 */
+@media (min-width: 1025px) {
+    .ohui-product-panel {
+        flex-direction: row; /* 가로 방향으로 배치 */
+        justify-content: space-between; /* 요소 사이의 공간을 균등하게 */
+    }
+
+    .ohui-hero-image {
+        width: 70%; /* 화면 크기에 맞게 줄어들도록 설정 */
+        margin: 0 auto; /* 중앙 정렬 */
+    }
+
+    .ohui-product-info {
+        margin: 0 30px; /* 좌우 여백 추가 */
+    }
+
+    .ohui-product-layout {
+        grid-template-columns: repeat(3, 1fr); /* 세 개의 열로 배치 */
+    }
+}
+
+
 /* 반응형 디자인 */
 @media (max-width: 768px) {
     .ohui-product-panel {
-        flex-direction: column;
+        flex-direction: column; /* 세로 방향으로 배치 */
     }
     
+    .ohui-hero-image {
+        width: 90%; /* 화면 크기에 맞게 줄어들도록 설정 */
+        margin: 0 auto; /* 중앙 정렬 */
+    }
+
+
+    .ohui-hero-image img{
+        padding-left: 0;
+    }
+
+    .ohui-product-info {
+        margin: 0 auto; /* 중앙 정렬 */
+    }
+
     .ohui-product-layout {
         grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 768px) {
+        .ohui-product-showcase h2 {
+            font-size: 8vw; /* 뷰포트 너비에 따라 글씨 크기 조정 */
+        }
     }
 }
 
@@ -962,6 +1007,7 @@ body.menu-open {
     width: 100%;
     margin-top: 5%;
     padding-bottom: 5%;
+    position: relative;
 /*         outline: 1px red solid; */
 }
 
@@ -1100,6 +1146,51 @@ body.menu-open {
     margin-top: -20%;
 }
 
+
+@media (min-width: 769px) and (max-width: 1024px) { /* PC와 태블릿 사이의 크기 설정 */
+    
+    .skin_con {
+        padding-left: 0; /* 좌우 여백 유지 */
+        padding-right: 0; /* 좌우 여백 유지 */
+    }
+    
+    .skin_con2 {
+        flex-direction: column; /* 세로 방향으로 배치 */
+        align-items: stretch; /* 요소가 전체 너비를 차지하도록 설정 */
+    }
+
+    .skin_left {
+        margin-bottom: 20px; /* 아래쪽 여백 추가 */
+        max-width: 500px; /* 최대 너비 설정 */
+    }
+
+    .skin_image {
+        margin-left: 0; /* 왼쪽 여백 제거 */
+        margin-top: 30%; /* 위쪽 여백 추가 */
+    }
+
+    .skin_image img {
+        width: 100%; /* 이미지 너비 100% */
+        max-width: 760px; /* 반응형 이미지 설정 */
+        height: auto; /* 비율 유지 */
+        margin-top: -20%; /* 위쪽 여백 조정 */
+    }
+
+    .cleansing-box {
+        width: 80px; /* 기존 너비 유지 */
+        height: 41px; /* 기존 높이 유지 */
+        display: flex;
+        justify-content: space-between; /* 좌우 정렬 */
+        border: 1px solid #000; /* 네모 모양의 선 */
+        padding: 10px; /* 내부 여백 */
+        position: relative; /* 자식 요소의 절대 위치 조정을 위해 */
+        cursor: pointer; /* 클릭할 수 있는 커서 */
+        transition: background-color 0.3s, color 0.3s; /* 배경색과 글씨색 변화에 애니메이션 추가 */
+    }
+}
+
+
+
 /* 화면 크기가 줄어들 때 이미지가 아래로 내려가도록 설정 */
 @media (max-width: 800px) { /* 원하는 최대 너비를 설정 */
     
@@ -1144,7 +1235,7 @@ body.menu-open {
 
 /* makeup */
 .makeup_con {
-    position: fixed;
+    position: absolute; /* 부모 요소의 흐름에 따라 위치 */
     top: 0; /* 화면 상단에 위치 */
     padding-left: 9%;
     padding-bottom: 0%;
@@ -1153,14 +1244,16 @@ body.menu-open {
     transition: opacity 0.5s ease; /* 불투명도 변화에 애니메이션 추가 */
     display: block; /* 보이도록 설정 */
     padding-top: 1%;
-     pointer-events: auto; /* 포인터 이벤트 활성화 */
-/*      outline: 1px solid red; */
+    pointer-events: auto; /* 포인터 이벤트 활성화 */
+    height: auto; /* 높이를 자동으로 조정 */
+    /* outline: 1px solid red; */
 }
 
 
 .makeup_wrap {
     padding-top: 16%;
     padding-left: 35px;
+    height: 100%;
 }
 
 .makeup_wrap h2 {
@@ -1179,7 +1272,7 @@ body.menu-open {
     gap: 10px; /* 요소 간의 간격 조정 */
     max-width: 700px; /* 최대 너비 설정 (4개씩 나열되도록) */
     height: 160px;
-    padding-top: 7%;
+    padding-top: 7%;;
 }
 
 .cleansing-box {
@@ -1421,7 +1514,18 @@ body.menu-open {
     }
 
     .store-image {
-        width: 100%; /* 모바일에서 이미지가 전체 너비를 차지하도록 설정 */
+        width: 100%; /* 모바일에서 이미지가 체 너비를 차지하도록 설정 */
+    }
+
+    .brand_con {
+        display: flex; /* Flexbox를 사용하여 중앙 정렬 */
+        justify-content: center; /* 수평 중앙 정렬 */
+        align-items: center; /* 수직 중앙 정렬 */
+        flex-direction: column; /* 세로 방향으로 정렬 */
+        text-align: center; /* 텍스트 중앙 정렬 */
+        padding: 20px; /* 내부 여백 추가 (필요에 따라 조정) */
+        position: relative;
+        margin-top: 40%;
     }
 }
 
@@ -1560,3 +1664,5 @@ body.menu-open {
         margin: 5px 0;
     }
 }
+
+

@@ -1,4 +1,4 @@
-window.addEventListener('scroll', function() {
+/* window.addEventListener('scroll', function() {
     const header = document.querySelector('header');
     if (window.scrollY > 0) {
         header.classList.add('scrolled');
@@ -34,6 +34,6 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdownBackground.style.height = '0';
         });
     });
-});
+}); */
 
 

@@ -238,10 +238,15 @@ a {
         flex-direction: column;
         align-items: center;
     }
+
+    .nav-item a {
+        display: none;
+    }
     
     .dropdown-menu {
         min-width: 100%;
         position: static;
+        display: none;
     }
     
     .menu-images {
