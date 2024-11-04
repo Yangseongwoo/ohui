@@ -111,7 +111,8 @@ gsap.utils.toArray('.slide-image').forEach((image, i) => {
 
     // 텍스트 애니메이션
     tl.to(text, {
-        color: "#000000",
+        color: "#000",
+        opacity: 1,
         duration: 1,
     }, 0);
 });
@@ -120,10 +121,12 @@ gsap.utils.toArray('.slide-image').forEach((image, i) => {
 gsap.utils.toArray('.fade-text').forEach((text, i) => {
     gsap.fromTo(text,
         {
-            color: "#cccccc"
+            color: "#cccccc",
+            opacity: 0.7
         },
         {
-            color: "#000000",
+            color: "#000",
+            opacity: 1,
             duration: 1,
             scrollTrigger: {
                 trigger: ".white-deaging-section",

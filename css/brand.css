@@ -592,12 +592,13 @@ a {
 
 .white-deaging-text {
     flex: 0 0 100%;
-    margin-top: -220px;
+    margin-top: -60px;
 }
 
 .white-brand-name, .white-solution-title{
     font-size: 50px;
     font-family: "Cormorant", serif;
+    color: #333;
 }
 
 .image-slider {
@@ -611,7 +612,7 @@ a {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2열 그리드 */
     gap: 10px; /* 이미지 간격 */
-    max-width: 1200px; /* 컨테이너 최대 너비 */
+    max-width: 700px; /* 컨테이너 최대 너비 */
     margin: 0 auto;
     padding: 0 20px;
 }
