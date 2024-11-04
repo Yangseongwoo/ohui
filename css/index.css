@@ -78,10 +78,11 @@ html, body {
     width: 100%;
     max-width: 1600px;
     margin: 0 auto;
-    padding: 0 30px;
+    padding: 0 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    box-sizing: border-box; /* 패딩을 너비에 포함 */
 }
 
 /* 로고 */
@@ -218,48 +219,50 @@ a {
     color: #666;
 }
 
-/* 반응형 디자인 */
+/* 반응형 디자인 수정 */
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 30px;
+    }
     
-    .nav-menu {
-        gap: 1rem;
+    .nav-center {
+        display: none; /* nav-center 숨김 */
+    }
+    
+    .nav-right {
+        margin-left: auto; /* 오른쪽 메뉴를 오른쪽 끝으로 정렬 */
     }
     
     .dropdown-menu {
-        min-width: 600px;
+        display: none; /* 드롭다운 메뉴 숨김 */
+    }
+    
+    .logo {
+        margin-right: 0; /* 로고의 오른쪽 마진 제거 */
     }
 }
 
 @media (max-width: 768px) {
-    .container {
-        flex-direction: row;
-        align-items: center;
-        padding: 0 15px;
-        height: 100%;
-    }
-    
-    .nav-menu {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .nav-item a {
-        display: none;
-    }
-    
-    .dropdown-menu {
-        min-width: 100%;
-        position: static;
-        display: none;
-    }
-    
-    .menu-images {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .nav-right {
-        width: auto;
-        justify-content: center;
+        gap: 0.5rem; /* 작은 화면에서 오른쪽 메뉴 간격 줄임 */
+    }
+    
+    .nav-right a {
+        font-size: 0.9rem; /* 작은 화면에서 폰트 크기 줄임 */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    .logo img {
+        height: 30px; /* 더 작은 화면에서 로고 크기 줄임 */
+    }
+    
+    .nav-right a {
+        font-size: 0.8rem;
     }
 }
 

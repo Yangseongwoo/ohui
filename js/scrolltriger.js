@@ -79,8 +79,8 @@ gsap.utils.toArray('.slide-image').forEach((image, i) => {
         scrollTrigger: {
             trigger: ".white-deaging-section",
             start: `top+=${i * 20}% center`,
-            end: `top+=${(i * 20) + 30}% center`,
-            scrub: true,
+            end: `top+=${(i * 20) + 50}% center`,
+            scrub: 1.5,
             toggleActions: "play none none reverse"
         }
     });
@@ -89,7 +89,7 @@ gsap.utils.toArray('.slide-image').forEach((image, i) => {
     tl.to(image, {
         y: 0,
         opacity: 1,
-        duration: 1,
+        duration: 1.5,
     })
     
     // 모든 이미지에 대해 위로 올라가는 애니메이션 적용
@@ -98,15 +98,15 @@ gsap.utils.toArray('.slide-image').forEach((image, i) => {
         tl.to(image, {
             y: '-100vh',
             opacity: 0,
-            duration: 1,
-        }, 1); // 타이밍 조정
+            duration: 2,
+        }, 1.5); // 타이밍 조정
     } else {
         // 마지막 이미지도 위로 올라가게
         tl.to(image, {
             y: '-100vh',
             opacity: 0,
-            duration: 1,
-        }, 1);
+            duration: 2,
+        }, 1.5);
     }
 
     // 텍스트 애니메이션
